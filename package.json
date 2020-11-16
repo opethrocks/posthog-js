@@ -13,6 +13,7 @@
         "process-types": "eslint src --ext .ts -c .eslintrc.ts.js --fix && tsc && cp -f src/*.d.ts dist/",
         "lint": "eslint src --fix",
         "prepublish": "yarn lint && yarn test && yarn build && yarn build-module && yarn process-types",
+        "version": "sed -i \"s/LIB_VERSION: .*/LIB_VERSION: '$npm_package_version',/g\" src/config.js && git add src/config.js",
         "test": "jest src",
         "test-watch": "jest --watch",
         "cypress": "yarn run copy-scripts && cypress open",
